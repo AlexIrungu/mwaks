@@ -14,7 +14,7 @@ function Contact() {
     window.location.href = "mailto:";
   };
   return (
-    <div className="font-montserrat">
+    <div id="contact" className="font-montserrat">
       <h1 className="text-4xl font-bold mb-6">Let's Chat</h1>
 
       <form
@@ -78,11 +78,11 @@ function Contact() {
       <div className="flex flex-col items-center">
       <div className="flex items-center mb-4">
         <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
-        <span className="text-gray-700">Email: murungibrenda1@gmail.com</span>
+        <span className="text-gray-700">Email: </span>
       </div>
       <div className="flex items-center mb-4">
         <FontAwesomeIcon icon={faPhone} className="mr-2" />
-        <span className="text-gray-700">Telephone: +254710110705</span>
+        <span className="text-gray-700">Telephone: </span>
       </div>
     </div>
       <div className="text-gray-700">

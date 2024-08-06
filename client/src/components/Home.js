@@ -2,7 +2,7 @@ import React from "react";
 
 function Home(){
     return(
-        <div className="bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
+        <div id="/" className="bg-white p-6 rounded-lg shadow-lg max-w-2xl mx-auto">
       <div className="flex items-center">
         {/* Image Section */}
         <div className="w-1/3">
