@@ -6,24 +6,19 @@ function Navbar(){
         <div>
             <nav className="bg-blue-600 p-4">
       <div className="container mx-auto flex justify-between items-center">
-        <div>
-        <ul className="navbar-list">
-          <li className="navbar-item">
-            <ScrollLink to="home" smooth={true} duration={500}>
-              Home
-            </ScrollLink>
-          </li>
-          <li className="navbar-item">
-            <ScrollLink to="about" smooth={true} duration={500}>
-              About
-            </ScrollLink>
-          </li>
-          <li className="navbar-item">
-            <ScrollLink to="contact" smooth={true} duration={500}>
-              Contact
-            </ScrollLink>
-          </li>
-          </ul>
+      <div>
+          <ScrollLink to="home" smooth={true} duration={500} className="text-white mx-4 cursor-pointer">
+            Home
+          </ScrollLink>
+          <ScrollLink to="about" smooth={true} duration={500} className="text-white mx-4 cursor-pointer">
+            About
+          </ScrollLink>
+          <ScrollLink to="project" smooth={true} duration={500} className="text-white mx-4 cursor-pointer">
+            Project
+          </ScrollLink>
+          <ScrollLink to="contact" smooth={true} duration={500} className="text-white mx-4 cursor-pointer">
+            Contact
+          </ScrollLink>
         </div>
       </div>
     </nav>
