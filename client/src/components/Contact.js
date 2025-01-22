@@ -4,92 +4,90 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 function Contact() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Redirect to the specified email address
-    window.location.href = "mailto:";
+    window.location.href = `mailto:your-email@domain.com?subject=Contact from ${formData.name}&body=${formData.message}`;
   };
+
   return (
-    <div id="contact" className="font-montserrat">
-      <h1 className="text-4xl font-bold mb-6">Let's Chat</h1>
+    <div id="contact" className="bg-white py-16">
+      <div className="container mx-auto px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Get in Touch</h2>
+            <p className="text-gray-600">Let's discuss how we can work together</p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div className="space-y-8">
+              <div className="flex items-center space-x-4">
+                <div className="bg-blue-100 p-3 rounded-full">
+                  <faEnvelope className="w-6 h-6 text-blue-600" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900">Email</h3>
+                  <p className="text-gray-600">contact@denismwaniki.com</p>
+                </div>
+              </div>
+              
+              <div className="flex items-center space-x-4">
+                <div className="bg-blue-100 p-3 rounded-full">
+                  <faPhone className="w-6 h-6 text-blue-600" />
+                </div>
+                <div>
+                  <h3 className="font-semibold text-gray-900">Phone</h3>
+                  <p className="text-gray-600">+1 (234) 567-8900</p>
+                </div>
+              </div>
 
-      <form
-        className="max-w-md mx-auto p-4 border rounded-md shadow-md"
-        onSubmit={handleSubmit}
-      >
-        <div className="mb-4">
-          <label htmlFor="name" className="block text-sm font-medium text-gray-600">
-            Name
-          </label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            className="mt-1 p-2 w-full border rounded-md"
-            placeholder="Your Name"
-          />
+              <div className="border rounded-lg p-6">
+                <h3 className="font-semibold text-gray-900 mb-4">Working Hours</h3>
+                <div className="space-y-2 text-gray-600">
+                  <p>Monday - Friday: 9 AM - 5 PM</p>
+                  <p>Weekends: 10 AM - 1 PM</p>
+                </div>
+              </div>
+            </div>
+
+            <form onSubmit={handleSubmit} className="space-y-6">
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                <input
+                  type="text"
+                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  onChange={(e) => setFormData({...formData, name: e.target.value})}
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                <input
+                  type="email"
+                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  onChange={(e) => setFormData({...formData, email: e.target.value})}
+                  required
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                <textarea
+                  className="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  rows="4"
+                  onChange={(e) => setFormData({...formData, message: e.target.value})}
+                  required
+                ></textarea>
+              </div>
+              <button
+                type="submit"
+                className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
+              >
+                Send Message
+              </button>
+            </form>
+          </div>
         </div>
-
-        <div className="mb-4">
-          <label htmlFor="email" className="block text-sm font-medium text-gray-600">
-            Email
-          </label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="mt-1 p-2 w-full border rounded-md"
-            placeholder="Your Email"
-          />
-        </div>
-
-        <div className="mb-4">
-          <label htmlFor="message" className="block text-sm font-medium text-gray-600">
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            value={message}
-            onChange={(e) => setMessage(e.target.value)}
-            rows="4"
-            className="mt-1 p-2 w-full border rounded-md"
-            placeholder="Your Message"
-          ></textarea>
-        </div>
-
-        <button
-          type="submit"
-          className="bg-blue-500 text-white py-2 px-4 rounded-md transition-transform transform hover:scale-105"
-        >
-          Submit
-        </button>
-      </form>
-      <div>
-      <h1 className="text-3xl font-bold mb-4">Contact</h1>
-      <div className="flex flex-col items-center">
-      <div className="flex items-center mb-4">
-        <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
-        <span className="text-gray-700">Email: </span>
-      </div>
-      <div className="flex items-center mb-4">
-        <FontAwesomeIcon icon={faPhone} className="mr-2" />
-        <span className="text-gray-700">Telephone: </span>
-      </div>
-    </div>
-      <div className="text-gray-700">
-        <h2 className="text-xl font-bold mb-2">Working Hours</h2>
-        <p className="mb-2">Monday - Friday: 9 am - 5 pm</p>
-        <p>Weekends: 10 am - 1 pm</p>
-      </div>
       </div>
     </div>
   );

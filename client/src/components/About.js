@@ -1,45 +1,78 @@
 import React from "react";
 
 function About() {
-  return (
-    <div id="about" className="bg-gray-100 py-12">
-      <div className="container mx-auto px-6 lg:px-8">
-        <div className="flex flex-col lg:flex-row items-center">
-          {/* Image Section */}
-          <div className="lg:w-1/3 mb-8 lg:mb-0">
-            <img
-              src="your-image-url.jpg"
-              alt="Denis Mwaniki"
-              className="w-full h-auto object-cover rounded-lg shadow-lg"
-            />
-          </div>
+  const skills = [
+    { category: "Financial Analysis", items: ["Risk Management", "Portfolio Optimization", "Quantitative Modeling"] },
+    { category: "Technical", items: ["Python", "R", "SQL", "Machine Learning"] },
+    { category: "Certifications", items: ["CFA", "FRM", "Financial Engineering Certificate"] }
+  ];
 
-          {/* Text Section */}
-          <div className="lg:w-2/3 lg:pl-12">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">
-              About Me
-            </h1>
-            <h2 className="text-2xl text-gray-700 mb-6">
-              Denis Mwaniki - Financial Engineer
-            </h2>
-            <p className="text-gray-600 mb-4 leading-relaxed">
-              I am a seasoned financial engineer with a deep passion for utilizing data and cutting-edge technology to address complex financial challenges. My expertise lies in quantitative finance, risk management, and financial modeling, where I have successfully driven results in dynamic and fast-paced environments.
-            </p>
-            <p className="text-gray-600 mb-4 leading-relaxed">
-              Throughout my career, I have developed and implemented advanced financial models that have significantly enhanced decision-making processes for my clients and employers. My ability to blend technical skills with financial acumen allows me to create innovative solutions that optimize financial performance and manage risk effectively.
-            </p>
-            <p className="text-gray-600 leading-relaxed">
-              I am always eager to take on new challenges and collaborate with like-minded professionals to push the boundaries of what is possible in the financial industry.
-            </p>
-            <div className="mt-6">
-              <a
-                href="https://portfolio-url.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700"
-              >
-                View My Portfolio
-              </a>
+  return (
+    <div id="about" className="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
+      <div className="container mx-auto px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="space-y-6">
+              <h2 className="text-4xl font-bold text-gray-900">
+                Turning Complex Financial Data into 
+                <span className="text-blue-600"> Actionable Insights</span>
+              </h2>
+              
+              <p className="text-lg text-gray-600 leading-relaxed">
+                With over a decade of experience in financial engineering, I specialize in developing 
+                sophisticated quantitative models and risk management solutions for complex financial 
+                instruments.
+              </p>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                {skills.map((skillSet) => (
+                  <div key={skillSet.category} className="bg-white p-6 rounded-lg shadow-sm">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-4">{skillSet.category}</h3>
+                    <ul className="space-y-2">
+                      {skillSet.items.map((item) => (
+                        <li key={item} className="text-gray-600 flex items-center">
+                          <span className="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="space-y-8">
+              <div className="bg-white p-8 rounded-lg shadow-sm">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Professional Experience</h3>
+                <div className="space-y-6">
+                  <div className="border-l-4 border-blue-600 pl-4">
+                    <p className="font-semibold text-gray-900">Senior Financial Engineer</p>
+                    <p className="text-blue-600">Major Investment Bank</p>
+                    <p className="text-gray-600">2018 - Present</p>
+                  </div>
+                  <div className="border-l-4 border-blue-600 pl-4">
+                    <p className="font-semibold text-gray-900">Quantitative Analyst</p>
+                    <p className="text-blue-600">Global Asset Management Firm</p>
+                    <p className="text-gray-600">2015 - 2018</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white p-8 rounded-lg shadow-sm">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Education</h3>
+                <div className="space-y-4">
+                  <div>
+                    <p className="font-semibold text-gray-900">MSc in Financial Engineering</p>
+                    <p className="text-blue-600">Top University</p>
+                    <p className="text-gray-600">2015</p>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">BSc in Mathematics</p>
+                    <p className="text-blue-600">Premier University</p>
+                    <p className="text-gray-600">2013</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
